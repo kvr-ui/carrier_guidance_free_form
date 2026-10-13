@@ -1,0 +1,71 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Theme (copied from the main site's career/theme.jsx): ivory paper, navy ink, muted gold. */
+.cg-root { font-family: "Plus Jakarta Sans", system-ui, sans-serif; color: #1f2a3d; }
+.cg-root ::selection { background: #13294b; color: #fff; }
+.cg-display { font-family: "Fraunces", Georgia, serif; font-optical-sizing: auto; letter-spacing: -0.015em; color: #13294b; }
+.cg-label { font-size: .9rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: #a87b2a; }
+
+.cg-btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: .5rem;
+  border-radius: .75rem; padding: 1.1rem 2rem;
+  font-weight: 700; font-size: 1.2rem; color: #fff; background: #13294b;
+  box-shadow: 0 10px 24px -12px rgba(19,41,75,.55);
+  transition: background .2s ease, transform .2s ease;
+}
+.cg-btn:hover { background: #0c1d38; transform: translateY(-1px); }
+.cg-btn:active { transform: none; }
+
+.cg-card { background: #fff; border: 1px solid #e7e2d8; border-radius: 1rem; }
+
+@keyframes cg-rise { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
+.cg-rise { animation: cg-rise .7s cubic-bezier(.2,.7,.2,1) both; }
+@media (prefers-reduced-motion: reduce) { .cg-rise { animation: none; } }
+
+/* Scoped replica of Bigin's form CSS (from bigin/formKit.jsx), prefixed bwf-. */
+.bwf-scope { font-family: Arial, sans-serif; font-size: 15px; color: #222; -webkit-font-smoothing: antialiased; }
+.bwf-scope * { box-sizing: border-box; }
+.bwf-wrapper { width: 100%; max-width: 700px; margin: auto; background: #fff; border-radius: 10px; box-shadow: 0 0 2px 0 #00000033; }
+.bwf-form { padding: 30px 30px 40px; position: relative; }
+.bwf-header { font-size: 22px; font-weight: bold; padding-bottom: 28px; word-break: break-word; }
+.bwf-row { margin-bottom: 20px; }
+.bwf-label { padding: 7px 0; word-break: break-word; }
+.bwf-field { text-align: left; word-break: break-word; border: 0; position: relative; }
+.bwf-field-inner { position: relative; display: flex; flex: 1; }
+.bwf-field-mandatory .bwf-field-inner::before { content: ''; position: absolute; inset-inline-start: 0; top: 0; bottom: 0; background: #ff6a6a; width: 3px; border-start-start-radius: 4px; border-end-start-radius: 4px; z-index: 2; }
+.bwf-input { width: 100%; border: 1px solid #BDC8D3; border-radius: 4px; padding: 10px 15px; min-height: 38px; font-size: 15px; font-family: inherit; -webkit-appearance: none; }
+.bwf-input:focus { outline: none; border: 1px solid #1980d8; }
+.bwf-select { -webkit-appearance: none; -moz-appearance: none; appearance: none; background-color: #fff; background-image: url("data:image/svg+xml;utf8,<svg fill='black' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>"); background-repeat: no-repeat; background-position: right 10px center; background-size: 20px; padding-right: 38px; cursor: pointer; }
+.bwf-select:invalid, .bwf-select option[value=""] { color: #919191; }
+.bwf-dialcode { border: 1px solid #BDC8D3; border-right: 0; border-radius: 4px 0 0 4px; padding: 10px 8px; min-height: 38px; font-size: 15px; background: #fff; font-family: inherit; }
+.bwf-dialcode:focus { outline: none; border-color: #1980d8; }
+.bwf-phone { border-radius: 0 4px 4px 0; }
+.bwf-two-col { display: flex; gap: 10px; width: 100%; }
+.bwf-two-col > .bwf-input { flex: 1; min-width: 0; }
+.bwf-select:disabled { background-color: #f2f4f7; color: #919191; cursor: not-allowed; }
+@media screen and (max-width: 480px) { .bwf-two-col { flex-direction: column; } }
+.bwf-field-error-active .bwf-input, .bwf-field-error-active .bwf-dialcode { border: 1px solid #FD6B6D; box-shadow: 0 0 1px 1px #F4A2A2; }
+.bwf-field-error { display: block; color: #EA4E4E; font-size: 13px; margin-top: 6px; }
+.bwf-btn-wrap { display: flex; margin-top: 40px; align-items: center; justify-content: flex-start; }
+.bwf-btn { background: #1980d8; color: #fff; border: 1px solid #1980d8; border-radius: 4px; padding: 10px 26px; font-size: 15px; font-family: inherit; cursor: pointer; }
+.bwf-btn:hover { background: #1668b0; border-color: #1668b0; }
+.bwf-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+.bwf-submit-error { color: #EA4E4E; font-size: 14px; margin-top: 16px; }
+.bwf-tick { width: 60px; height: 60px; border-radius: 50%; background: #1D9E75; display: flex; align-items: center; justify-content: center; margin: 0 auto 18px; }
+@media screen and (max-width: 590px) { .bwf-form { padding: 20px; } }
+
+/* Navy/gold overrides for the registration form. */
+.bwf-scope { font-family: "Plus Jakarta Sans", system-ui, sans-serif; color: #1f2a3d; }
+.bwf-wrapper { border-radius: 1rem; border: 1px solid #e7e2d8; box-shadow: 0 20px 50px -30px rgba(19,41,75,.4); }
+.bwf-label { font-weight: 600; color: #13294b; }
+.bwf-input:focus, .bwf-dialcode:focus { border-color: #13294b; }
+.bwf-field-mandatory .bwf-field-inner::before { background: #a87b2a; }
+.bwf-btn-wrap { margin-top: 28px; }
+.bwf-btn { width: 100%; display: inline-flex; align-items: center; justify-content: center; gap: .5rem; background: #13294b; border-color: #13294b; border-radius: .75rem; padding: 14px 20px; font-weight: 700; font-size: 17px; }
+.bwf-btn:hover { background: #0c1d38; border-color: #0c1d38; }
